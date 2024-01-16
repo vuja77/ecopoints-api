@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/upload-form', function () {
     return view('upload');
 });
+Route::get('/cert', function () {
+    return view('pdf.view');
+});

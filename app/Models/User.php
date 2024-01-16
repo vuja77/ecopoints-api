@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Passport\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
-    use CrudTrait;
     use HasApiTokens, HasFactory, Notifiable;
 
     /**
@@ -20,14 +18,11 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'first_name',
-        'last_name',
-        'mail',
+        
+        'name',
+        'email',
         'password',
-        'gender',
-        'ed_program_id',
-        'class_id',
-        'role_id'
+       
     ];
 
     /**
